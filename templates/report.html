@@ -1,0 +1,22 @@
+<section>
+    {% block content %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div>
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <div class="flashes">
+    
+    <form method='post' action='/' enctype='multipart/form-data'>
+      Upload a csv file: <input type='file' name='file'>
+      <input type='submit' value='Upload'>
+    </form>
+    <form method='get' action='/retrieve' enctype='multipart/form-data'>
+      Generate report: <input type='submit' name='Payroll'>
+    </form>
+    <pre class="container">{{jsonfile}}</pre>
+    <div>
+    {% endblock %}
+</section>
